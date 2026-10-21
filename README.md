@@ -69,4 +69,4 @@ BigQuery (external tables, views, table functions, scheduled queries), Cloud Run
 
 ## Portfolio
 
-Full write-up with images: [Portfolio link](https://www.datascienceportfol.io/Ahadmoeen)
+Full write-up with images: [Portfolio link](https://www.datascienceportfol.io/Ahadmoeen/projects/19)
