@@ -1,0 +1,33 @@
+flowchart LR
+  subgraph Sources
+    S1[Operational sales sheet<br/>Google Sheets]
+    S2[Sales and leads sheet<br/>Google Sheets]
+    S3[Product base sheet<br/>Google Sheets]
+    S4[Google Ads, Meta, GA4<br/>via Windsor.ai]
+    S5[GA4 Data API]
+  end
+  subgraph BigQuery
+    E[External tables<br/>read live]
+    V[Staging and period views]
+    T[Agent tables<br/>scheduled queries]
+    F[Table functions<br/>ranges, channels, cut]
+  end
+  subgraph CloudRun[Cloud Run]
+    API[reporting-agent-api<br/>FastAPI, private]
+    GW[cut-gateway<br/>key protected]
+  end
+  AG[Agent on Vertex AI Agent Engine<br/>ADK, 9 tools]
+  GE[Gemini Enterprise]
+  N8N[n8n to Slack]
+  S1 --> E
+  S2 --> E
+  S3 --> E
+  S4 --> T
+  S5 -->|Cloud Scheduler, 3x daily| API
+  E --> V --> T
+  V --> F
+  T --> API
+  F --> API
+  API --> AG --> GE
+  GW --> API
+  N8N --> GW
