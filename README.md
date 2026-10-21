@@ -27,6 +27,16 @@ Built for a marketing agency's AI division, on Google Cloud. Client names, ident
 - **Reporting cut:** the daily and weekly sales update the team used to assemble by hand, now generated with reconciled figures, a chart in the team's format and rule-based analysis text, available in the agent and through a key-protected endpoint for n8n.
 - **GA4 Data API sync:** headline sessions, users and closing rate read directly from GA4 three times a day.
 
+## In action
+
+The agent producing the weekly reporting cut from BigQuery figures (values blurred):
+
+![Weekly cut in the agent playground](images/s11-weekly-cut-text.png)
+
+The key-protected gateway for n8n: 401 without the key, the weekly cut and 200 with it (values blurred):
+
+![Gateway test in Cloud Shell](images/s12-gateway-401-200.png)
+
 ## Tech stack
 
 BigQuery (external tables, views, table functions, scheduled queries), Cloud Run (FastAPI, Python, matplotlib), Cloud Scheduler, Vertex AI Agent Engine, Agent Development Kit, Gemini Enterprise, GA4 Data API, Windsor.ai, Google Apps Script, n8n.
@@ -59,4 +69,4 @@ BigQuery (external tables, views, table functions, scheduled queries), Cloud Run
 
 ## Portfolio
 
-Full write-up with images: [Portfolio link](PORTFOLIO_URL)
+Full write-up with images: [Portfolio link](https://www.datascienceportfol.io/Ahadmoeen)
